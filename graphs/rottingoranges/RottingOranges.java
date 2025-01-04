@@ -30,8 +30,10 @@ public class RottingOranges {
             }
         }
         int minimumTimeToRottenOranges = 0;
+        int rottenOranges = 0;
         while (!rottenOrangePlaceTimeQueue.isEmpty()) {
             int size = rottenOrangePlaceTimeQueue.size();
+            rottenOranges += size;
             for (int i = 0; i < size; i++) {
                 RottenOrangePlaceTime rottenOrangePlaceTime = rottenOrangePlaceTimeQueue.poll();
                 rottenNeighbours(rottenOrangePlaceTime, grid, rottenOrangePlaceTimeQueue);
@@ -40,29 +42,31 @@ public class RottingOranges {
                 minimumTimeToRottenOranges++;
             }
         }
-        return
+        return rottenOranges == freshOrangeCount ? minimumTimeToRottenOranges : -1;
     }
 
     private void rottenNeighbours(RottenOrangePlaceTime rottenOrangePlaceTime, int[][] grid, Queue<RottenOrangePlaceTime> queue) {
         int min = 0;
         int max = grid.length - 1;
-
         int rottenOrangeRow = rottenOrangePlaceTime.row;
         int rottenOrangeColumn = rottenOrangePlaceTime.column;
         int rottenOrangeTime = rottenOrangePlaceTime.time;
-
-        if (rottenOrangeRow - 1 >= 0) {
+        if (rottenOrangeRow - 1 >= 0 && isOrangeFresh(rottenOrangeRow - 1, rottenOrangeColumn, grid)) {
             queue.add(new RottenOrangePlaceTime(rottenOrangeRow - 1, rottenOrangeColumn, rottenOrangeTime + 1));
         }
-        if (rottenOrangeRow + 1 <= max) {
+        if (rottenOrangeRow + 1 <= max && isOrangeFresh(rottenOrangeRow + 1, rottenOrangeColumn, grid)) {
             queue.add(new RottenOrangePlaceTime(rottenOrangeRow + 1, rottenOrangeColumn, rottenOrangeTime + 1));
         }
-        if (rottenOrangeColumn - 1 >= 0) {
+        if (rottenOrangeColumn - 1 >= 0 && isOrangeFresh(rottenOrangeRow, rottenOrangeColumn - 1, grid)) {
             queue.add(new RottenOrangePlaceTime(rottenOrangeRow, rottenOrangeColumn - 1, rottenOrangeTime + 1));
         }
-        if (rottenOrangeColumn + 1 <= max) {
+        if (rottenOrangeColumn + 1 <= max && isOrangeFresh(rottenOrangeRow, rottenOrangeColumn + 1, grid)) {
             queue.add(new RottenOrangePlaceTime(rottenOrangeRow, rottenOrangeColumn + 1, rottenOrangeTime + 1));
         }
+    }
+
+    private boolean isOrangeFresh(int rottenOrangeRow, int rottenOrangeColumn, int[][] grid) {
+        return (grid[rottenOrangeRow][rottenOrangeColumn] == 1);
     }
 
 }

@@ -36,7 +36,7 @@ public static int orangesRotting(int[][] grid) {
                     int x = point[0] + dx[j];
                     int y = point[1] + dy[j];
                     
-                    if(x < 0 || y < 0 || x >= rows || y >= cols || grid[x][y] == 0 || 
+                    if(x < 0 || y < 0 || x >= rows || y >= cols || grid[x][y] == 0 ||
                     grid[x][y] == 2) continue;
                     
                     grid[x][y] = 2;
@@ -49,6 +49,7 @@ public static int orangesRotting(int[][] grid) {
         }
         return count_fresh == cnt ? countMin : -1;
     }
+
     public static void main(String args[])
     {
         int arr[][]={ {2,1,1} , {1,1,0} , {0,1,1} };
