@@ -29,14 +29,18 @@ public class RottingOranges {
                 }
             }
         }
-
+        int minimumTimeToRottenOranges = 0;
         while (!rottenOrangePlaceTimeQueue.isEmpty()) {
             int size = rottenOrangePlaceTimeQueue.size();
             for (int i = 0; i < size; i++) {
                 RottenOrangePlaceTime rottenOrangePlaceTime = rottenOrangePlaceTimeQueue.poll();
                 rottenNeighbours(rottenOrangePlaceTime, grid, rottenOrangePlaceTimeQueue);
             }
+            if (!rottenOrangePlaceTimeQueue.isEmpty()) {
+                minimumTimeToRottenOranges++;
+            }
         }
+        return
     }
 
     private void rottenNeighbours(RottenOrangePlaceTime rottenOrangePlaceTime, int[][] grid, Queue<RottenOrangePlaceTime> queue) {
