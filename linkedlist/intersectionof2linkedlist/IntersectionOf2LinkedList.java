@@ -2,7 +2,6 @@ package leetcode.linkedlist.intersectionof2linkedlist;
 
 import java.util.Arrays;
 import java.util.List;
-
 import leetcode.linkedlist.createlinkedlist.LinkedListCreator;
 import leetcode.twonumbersaddionlinkedlist.ListNode;
 
