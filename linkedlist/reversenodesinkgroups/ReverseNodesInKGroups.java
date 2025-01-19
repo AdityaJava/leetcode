@@ -12,11 +12,24 @@ import leetcode.twonumbersaddionlinkedlist.ListNode;
 public class ReverseNodesInKGroups {
 
   public ListNode reverseKGroup(ListNode head, int k) {
+    if (head == null || k <= 1) {
+      return head;
+    }
+
     ListNode temp = head;
     ListNode prevLast = null;
     boolean isFirstChunk = true;
     ListNode newHead = null;
+    int numberOfElements = getNumberOfElements(head);
+    int count = numberOfElements;
+
     while (temp != null) {
+      if (count < k) {
+        if (prevLast != null) {
+          prevLast.next = temp;
+        }
+        break;
+      }
       ListNode kthNode = getKthNode(temp, k);
       ListNode nextNode = kthNode.next;
       kthNode.next = null;
@@ -30,6 +43,7 @@ public class ReverseNodesInKGroups {
       }
       prevLast = temp;
       temp = nextNode;
+      count = count - k;
     }
     return newHead;
   }
@@ -57,6 +71,16 @@ public class ReverseNodesInKGroups {
       i++;
     }
     return temp;
+  }
+
+  private int getNumberOfElements(ListNode head) {
+    ListNode temp = head;
+    int count = 0;
+    while (temp != null) {
+      temp = temp.next;
+      count++;
+    }
+    return count;
   }
 
   public static void main(String[] args) {
