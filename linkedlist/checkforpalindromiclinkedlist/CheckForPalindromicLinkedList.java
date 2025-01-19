@@ -12,18 +12,19 @@ import leetcode.twonumbersaddionlinkedlist.ListNode;
 public class CheckForPalindromicLinkedList {
 
   public boolean isPalindrome(ListNode head) {
+    if (head == null || head.next == null) {
+      return true;
+    }
     ListNode slowPointer = head;
     ListNode fastPointer = head;
-    while (fastPointer.next.next != null) {
+    while (fastPointer.next != null && fastPointer.next.next != null) {
       slowPointer = slowPointer.next;
       fastPointer = fastPointer.next.next;
     }
     ListNode rightNewHead = reverseLinkedList(slowPointer.next);
     slowPointer.next = rightNewHead;
     slowPointer = slowPointer.next;
-
     ListNode tempHead = head;
-
     while (slowPointer != null) {
       if (slowPointer.val == tempHead.val) {
         slowPointer = slowPointer.next;
@@ -56,5 +57,13 @@ public class CheckForPalindromicLinkedList {
     List<Integer> list = Arrays.asList(1, 2, 2, 1);
     ListNode headNode = LinkedListCreator.createLinkedList(list);
     System.out.println(checkForPalindromicLinkedList.isPalindrome(headNode));
+
+    List<Integer> list1 = Arrays.asList(1, 2);
+    ListNode headNode1 = LinkedListCreator.createLinkedList(list1);
+    System.out.println(checkForPalindromicLinkedList.isPalindrome(headNode1));
+
+    List<Integer> list2 = Arrays.asList(1);
+    ListNode headNode2 = LinkedListCreator.createLinkedList(list2);
+    System.out.println(checkForPalindromicLinkedList.isPalindrome(headNode2));
   }
 }
