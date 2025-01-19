@@ -11,21 +11,22 @@ import leetcode.twonumbersaddionlinkedlist.ListNode;
  */
 public class ReverseLinkedList {
 
-  public static ListNode reverseList(ListNode head) {
+  private static ListNode reverseLinkedList(ListNode head) {
     if (head == null) {
       return null;
     }
-    ListNode temp = null;
-    ListNode next = head.next;
-    while (head != null) {
-      head.next = temp;
-      temp = head;
-      head = next;
-      if (head != null) {
-        next = head.next;
+    ListNode previousNode = null;
+    ListNode tempHead = head;
+    ListNode nextNode = head.next;
+    while (tempHead != null) {
+      tempHead.next = previousNode;
+      previousNode = tempHead;
+      tempHead = nextNode;
+      if (tempHead != null) {
+        nextNode = tempHead.next;
       }
     }
-    return temp;
+    return previousNode;
   }
 
   public static void main(String[] args) {
@@ -33,8 +34,10 @@ public class ReverseLinkedList {
     List<Integer> list = Arrays.asList(1, 9, 7, 0, 45);
     ListNode headNode = linkedListCreator.createLinkedList(list);
     linkedListCreator.printNode(headNode);
-    headNode = reverseList(headNode);
+    System.out.println("----------------------");
+    headNode = reverseLinkedList(headNode);
     linkedListCreator.printNode(headNode);
+
   }
 
 }
