@@ -8,7 +8,7 @@ public class StringToInteger {
     int position = 0;
     double number = 0;
     int power = s.length() - 1;
-    return (int)myAtoiRecursive(s, position, number, power);
+    return (int) myAtoiRecursive(s, position, number, power);
   }
 
   public double myAtoiRecursive(String s, int position, double number, int power) {
