@@ -5,10 +5,43 @@ package leetcode.recursionPatternWise.getstronghold.StringtoIntegert;
  */
 public class StringToInteger {
   public int myAtoi(String s) {
+    String cleanString = cleanTheString(s);
+    if (cleanString == null && cleanString.length() == 1 && cleanString.charAt(0) == '-') {
+      return 0;
+    }
+    int sign = 1;
+    if (!Character.isDigit(cleanString.charAt(0))) {
+      sign = -1;
+      s = cleanString.substring(1);
+    }
     int position = 0;
     double number = 0;
     int power = s.length() - 1;
     return (int) myAtoiRecursive(s, position, number, power);
+  }
+
+  private String cleanTheString(String s) {
+    if (s == null) {
+      return null;
+    }
+    s = s.trim();
+    if (s.isEmpty()) {
+      return null;
+    }
+
+    int i = 0;
+    StringBuilder stringBuilder = new StringBuilder();
+    if (s.charAt(0) == '-') {
+      stringBuilder.append('-');
+      i++;
+    }
+    for (; i < s.length(); i++) {
+      if (!Character.isDigit(s.charAt(i))) {
+        break;
+      }
+      stringBuilder.append(s.charAt(i));
+    }
+    return new String(stringBuilder);
   }
 
   public double myAtoiRecursive(String s, int position, double number, int power) {
@@ -35,6 +68,8 @@ public class StringToInteger {
     //    double number = StringToInteger.myAtoiIterative("432");
     //    System.out.println(number);
     StringToInteger stringToInteger = new StringToInteger();
-    System.out.println(stringToInteger.myAtoi("432"));
+//    System.out.println(stringToInteger.myAtoi("432"));
+
+    System.out.println(stringToInteger.myAtoi("   -042"));
   }
 }
