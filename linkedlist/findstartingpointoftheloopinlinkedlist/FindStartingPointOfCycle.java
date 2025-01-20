@@ -26,7 +26,6 @@ public class FindStartingPointOfCycle {
         break;
       }
     }
-    int index = 0;
     if (loopFound) {
       ListNode tempHead = head;
       while (tempHead != slowPointer) {
