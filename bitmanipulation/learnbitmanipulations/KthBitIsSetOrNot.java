@@ -1,5 +1,7 @@
 package leetcode.bitmanipulation.learnbitmanipulations;
 
+import leetcode.bitmanipulation.mustknowtricks.IthBitIsSet;
+
 /**
  * KthBitIsSetOrNot
  */
@@ -32,5 +34,8 @@ public class KthBitIsSetOrNot {
 
   public static void main(String[] args) {
     System.out.println(checkKthBit(1250, 30));
+    //More efficient and easy
+    IthBitIsSet ithBitIsSet = new IthBitIsSet();
+    System.out.println(ithBitIsSet.isIthBitSetUsingLeftShift(4, 0));
   }
 }

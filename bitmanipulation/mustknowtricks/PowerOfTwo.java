@@ -1,4 +1,4 @@
-package leetcode.bitmanipulation.learnbitmanipulations;
+package leetcode.bitmanipulation.mustknowtricks;
 
 /**
  * PowerOfTwo
