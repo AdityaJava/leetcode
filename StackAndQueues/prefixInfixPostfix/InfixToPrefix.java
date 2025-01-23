@@ -55,13 +55,25 @@ public class InfixToPrefix {
         }
         else {
           Character top = stack.peek();
-          //The difference while we use this method for prefix is here
-          // in infixToPostFix we do priority(top) >= priority(temp) that is the equal to is also there
-          //But here it is not there
-          while (!stack.isEmpty() && priority(top) > priority(temp)) {
-            result = result.append(stack.pop());
-            if (!stack.isEmpty()) {
-              top = stack.peek();
+          //Only for operator ^ we need to check of priority greater than equals(This is exactly same ad infixToPostfix)
+          //For other operators(in else part) we only check for lesser priority
+          if (temp == '^') {
+            while (!stack.isEmpty() && priority(top) >= priority(temp)) {
+              result = result.append(stack.pop());
+              if (!stack.isEmpty()) {
+                top = stack.peek();
+              }
+            }
+          }
+          else {
+            //The difference while we use this method for prefix is here
+            // in infixToPostFix we do priority(top) >= priority(temp) that is the equal to is also there
+            //But here it is not there
+            while (!stack.isEmpty() && priority(top) > priority(temp)) {
+              result = result.append(stack.pop());
+              if (!stack.isEmpty()) {
+                top = stack.peek();
+              }
             }
           }
           stack.push(temp);
