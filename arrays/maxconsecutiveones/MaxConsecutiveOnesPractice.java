@@ -1,10 +1,11 @@
 package leetcode.arrays.maxconsecutiveones;
 
-//https://leetcode.com/problems/max-consecutive-ones/
+/**
+ * Practice
+ */
+public class MaxConsecutiveOnesPractice {
 
-public class MaxConsecutiveOnes {
-
-  public static int findMaxConsecutiveOnes(int[] nums) {
+  public int findMaxConsecutiveOnes(int[] nums) {
     int count = 0;
     int maxCount = 0;
     for (int i = 0; i < nums.length; i++) {
@@ -21,7 +22,9 @@ public class MaxConsecutiveOnes {
   }
 
   public static void main(String[] args) {
-    int[] nums = { 1, 1, 0, 1, 1, 1 };
-    System.out.println(MaxConsecutiveOnes.findMaxConsecutiveOnes(nums));
+    //    int [] nums = {1,1,0,1,1,1};
+    int[] nums = { 1, 0, 1, 1, 0, 1 };
+    MaxConsecutiveOnesPractice practice = new MaxConsecutiveOnesPractice();
+    System.out.println(practice.findMaxConsecutiveOnes(nums));
   }
 }
