@@ -16,7 +16,7 @@ public class JumpGame {
       if (maxIndex < indexTillItCanGo) {
         maxIndex = indexTillItCanGo;
       }
-      if (maxIndex == (nums.length - 1)) {
+      if (maxIndex >= (nums.length - 1)) {
         return true;
       }
       if (maxIndex == i) {
