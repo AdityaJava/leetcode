@@ -1,0 +1,21 @@
+1. Struggle First – Try solving for 30-45 mins before watching solutions.
+2. Start Easy – Build confidence before tackling hard problems.
+3. Make It Real – Relate problems to real-world applications.
+4. Gamify It – Use LeetCode, CodeChef, and contests for fun learning.
+5. Join a Community – Discuss with peers to stay motivated.
+6. Track Progress – Maintain a log to see improvements.
+7. Stick to Java – Use your preferred language for comfort.
+-------------------------------------------------------------------------------------------------------
+
+"Struggle First" helps you develop problem-solving skills rather than just memorizing solutions. Here's how:
+
+Active Thinking – Your brain tries different approaches, improving logical reasoning.
+Pattern Recognition – You start seeing common tricks in problems over time.
+Stronger Retention – Solutions you figure out yourself stick longer in memory.
+Boosts Confidence – Solving without help gives a sense of achievement.
+Develops Patience – You get comfortable with handling tough problems.
+If you're completely stuck, break it down:
+
+Think of brute-force first.
+Try small test cases manually.
+Identify similar problems you've solved before.

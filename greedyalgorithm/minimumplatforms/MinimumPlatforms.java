@@ -1,8 +1,6 @@
 package leetcode.greedyalgorithm.minimumplatforms;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * MinimumPlatforms
@@ -10,22 +8,27 @@ import java.util.List;
 public class MinimumPlatforms {
 
   static int findPlatform(int arr[], int dep[]) {
-    List<Platform> platformList = new ArrayList<>();
-    for (int i = 0; i < arr.length; i++) {
-      Platform platform = new Platform(arr[i], dep[i]);
-      platformList.add(platform);
+    if (arr.length == 1) {
+      return 1;
     }
-    Collections.sort(platformList, (Platform p1, Platform p2) -> Integer.compare(p1.arrival, p2.arrival));
-    //    platformList = platformList.stream().sorted(Comparator.comparing((Platform p) -> p.arrival)).collect(Collectors.toList());
-    int platformCount = 1;
-    int endingDep = -1;
-    for (Platform platform : platformList) {
-      if (endingDep > platform.arrival) {
-        platformCount++;
+    Arrays.sort(arr);
+    Arrays.sort(dep);
+    int arrPointer = 0;
+    int depPointer = 0;
+    int maxPlatforms = 0;
+    int platforms = 0;
+    while ((arrPointer <= arr.length - 1)) {
+      if (arr[arrPointer] <= dep[depPointer]) {
+        platforms++;
+        arrPointer++;
       }
-      endingDep = platform.departure;
+      else {
+        platforms--;
+        depPointer++;
+      }
+      maxPlatforms = Math.max(platforms, maxPlatforms);
     }
-    return platformCount;
+    return maxPlatforms;
   }
 
   public static void main(String[] args) {
@@ -34,6 +37,9 @@ public class MinimumPlatforms {
 
     int[] arr = { 1114, 825, 357, 1415, 54 };
     int[] dep = { 1740, 1110, 2238, 1535, 2323 };
+
+    //    int[] arr = { 1114, 825, 357, 1415, 54 };
+    //    int[] dep = { 1740, 1110, 2238, 1535, 2323 };
 
     System.out.println(MinimumPlatforms.findPlatform(arr, dep));
   }
