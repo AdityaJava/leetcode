@@ -19,3 +19,11 @@ If you're completely stuck, break it down:
 Think of brute-force first.
 Try small test cases manually.
 Identify similar problems you've solved before.
+------------------------------------------------------------------------------------------
+Striver's advice
+
+1. Do not solve the problems that you know you can
+2. Try learning topics pattern wise
+3. Participate in Contest
+4. Try to diversify topics
+
