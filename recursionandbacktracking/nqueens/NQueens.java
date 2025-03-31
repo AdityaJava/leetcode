@@ -26,10 +26,7 @@ public class NQueens {
     }
 
     private boolean isSafe(List<Integer> rowHash, List<Integer> lowerDiagonalHash, List<Integer> upperDiagonalHash, int row, int column, int n) {
-        if (rowHash.get(row) == 0 && lowerDiagonalHash.get(row + column) == 0 && upperDiagonalHash.get(n - 1 + column - row) == 0) {
-            return true;
-        }
-        return false;
+        return (rowHash.get(row) == 0 && lowerDiagonalHash.get(row + column) == 0 && upperDiagonalHash.get(n - 1 + column - row) == 0);
     }
 
     public List<List<String>> solveNQueens(int n) {
@@ -37,7 +34,7 @@ public class NQueens {
         List<Integer> rowHash = new ArrayList<>();
         List<Integer> lowerDiagonalHash = new ArrayList<>();
         List<Integer> upperDiagonalHash = new ArrayList<>();
-        nQueenRecursion(board, rowHash, lowerDiagonalHash, upperDiagonalHash);
+        nQueenRecursion(board, rowHash, lowerDiagonalHash, upperDiagonalHash,0);
         return null;
     }
 
