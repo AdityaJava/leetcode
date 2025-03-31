@@ -16,6 +16,7 @@ public class NQueens {
                 lowerDiagonalHash.set(row + column, 1);
                 upperDiagonalHash.set(board.size() - 1 + column + row, 1);
                 nQueenRecursion(board, rowHash, lowerDiagonalHash, upperDiagonalHash, column + 1);
+                //Backtracking
                 rowHash.set(row, 0);
                 lowerDiagonalHash.set(row + column, 0);
                 upperDiagonalHash.set(board.size() - 1 + column + row, 0);
