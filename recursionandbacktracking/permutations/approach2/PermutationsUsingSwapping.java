@@ -1,4 +1,4 @@
-package leetcode.recursion.permutations.approach2;
+package leetcode.recursionandbacktracking.permutations.approach2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
