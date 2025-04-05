@@ -23,7 +23,7 @@ public class WordBreak {
         for (int i = beginIndex; i < s.length(); i++) {
             temp = s.substring(beginIndex, i + 1);
             if (dictionary.contains(temp)) {
-                answer = temp + answer;
+                answer = answer + " " + temp;
                 recursiveWordBreak(s, i + 1, dictionary, answers, answer);
             }
         }
