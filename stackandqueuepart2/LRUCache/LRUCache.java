@@ -1,4 +1,4 @@
-package leetcode.stackandqueuepart2;
+package leetcode.stackandqueuepart2.LRUCache;
 
 import java.util.HashMap;
 import java.util.Map;
